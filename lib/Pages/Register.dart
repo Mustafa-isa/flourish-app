@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flourish/Models/User_model.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
@@ -5,6 +8,9 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = User_model();
+    String? pass1;
+    //String? name;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -15,17 +21,21 @@ class Register extends StatelessWidget {
           ),
           SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.only(top: 100),
+              margin: EdgeInsets.only(top: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("assets/images/flourish.png",height: 200,width: 200,),
+                  Image.asset(
+                    "assets/images/flourish.png",
+                    height: 200,
+                    width: 200,
+                  ),
                   Container(
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                              Color.fromARGB(255, 18, 0, 63)                             .withOpacity(0.1),
+                            Color.fromARGB(255, 18, 0, 63).withOpacity(0.1),
                             Color.fromARGB(255, 48, 2, 76).withOpacity(0.1),
                           ],
                           begin: Alignment.topLeft,
@@ -45,6 +55,10 @@ class Register extends StatelessWidget {
                             icon: Icon(Icons.person, color: Colors.white),
                           ),
                           style: TextStyle(color: Colors.white),
+                          onChanged: (name) {
+                            model.addName(name);
+                            // print(model.Info);
+                          },
                         ),
                         SizedBox(height: 16.0),
                         // Password TextField
@@ -56,6 +70,23 @@ class Register extends StatelessWidget {
                             icon: Icon(Icons.lock, color: Colors.white),
                           ),
                           style: TextStyle(color: Colors.white),
+                          // onSubmitted: (pass) => pass1 = pass,
+                          onChanged: (value) => pass1 = value,
+                        ),
+                        TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: 'Confirm Password',
+                            hintStyle: TextStyle(color: Colors.white),
+                            icon: Icon(Icons.lock, color: Colors.white),
+                          ),
+                          style: TextStyle(color: Colors.white),
+                          onChanged: (pass) => {
+                            if (pass == pass1)
+                              model.addPassword(pass)
+                            else
+                              print('wrong password'),
+                          },
                         ),
                         SizedBox(height: 16.0),
                         // Phone TextField
@@ -74,11 +105,12 @@ class Register extends StatelessWidget {
                         SizedBox(height: 30.0),
                         ElevatedButton(
                           onPressed: () {
-                            // Handle button press
+                            // model.addName(name!);
+                            // model.addPassword(pass1!);
+                            print(model.Info);
                           },
                           style: ElevatedButton.styleFrom(
-                                                      primary: Color.fromARGB(255, 89, 15, 186),
-
+                            backgroundColor: Color.fromARGB(255, 89, 15, 186),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0),
                             ),
@@ -87,7 +119,8 @@ class Register extends StatelessWidget {
                             padding: const EdgeInsets.all(16.0),
                             child: Text(
                               'Submit',
-                              style: TextStyle(color: Colors.white, fontSize: 20),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
                             ),
                           ),
                         ),
@@ -95,7 +128,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 100),
+                    margin: EdgeInsets.only(top: 10),
                     child: TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, "/login");
@@ -106,8 +139,8 @@ class Register extends StatelessWidget {
                           children: [
                             Text(
                               "Login",
-                              style:
-                                  TextStyle(fontSize: 30, color: Colors.blue[200]),
+                              style: TextStyle(
+                                  fontSize: 30, color: Colors.blue[200]),
                             ),
                             SizedBox(
                               width: 30,
