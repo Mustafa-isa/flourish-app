@@ -63,6 +63,7 @@ class Login extends StatelessWidget {
                           SizedBox(height: 30.0),
                           ElevatedButton(
                             onPressed: () {
+                              Navigator.pushNamed(context, "/route");
                               // Handle button press
                             },
                             

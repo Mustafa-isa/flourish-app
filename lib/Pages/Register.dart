@@ -12,13 +12,10 @@ class Register extends StatelessWidget {
     String? pass1;
     //String? name;
     return Scaffold(
-            backgroundColor: Colors.purple[900],
-
+      backgroundColor: Colors.purple[900],
       body: SingleChildScrollView(
         child: Column(
-        
           children: [
-        
             SingleChildScrollView(
               child: Container(
                 margin: EdgeInsets.only(top: 45),
@@ -35,8 +32,10 @@ class Register extends StatelessWidget {
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                            Color.fromARGB(255, 233, 231, 237).withOpacity(.2)                            .withOpacity(0.1),
-                              Color.fromARGB(255, 208, 204, 211).withOpacity(.2)  
+                              Color.fromARGB(255, 233, 231, 237)
+                                  .withOpacity(.2)
+                                  .withOpacity(0.1),
+                              Color.fromARGB(255, 208, 204, 211).withOpacity(.2)
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
@@ -107,11 +106,11 @@ class Register extends StatelessWidget {
                             onPressed: () {
                               // model.addName(name!);
                               // model.addPassword(pass1!);
+                              Navigator.pushNamed(context, "/login");
                               print(model.Info);
                             },
                             style: ElevatedButton.styleFrom(
-                                                        primary: Color.fromARGB(255, 84, 4, 59),
-      
+                              primary: Color.fromARGB(255, 84, 4, 59),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
@@ -120,8 +119,8 @@ class Register extends StatelessWidget {
                               padding: const EdgeInsets.all(16.0),
                               child: Text(
                                 'Submit',
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: 20),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
                               ),
                             ),
                           ),
@@ -140,7 +139,9 @@ class Register extends StatelessWidget {
                             children: [
                               Text(
                                 "Login",
-                                style:       TextStyle(fontSize: 30, color: Color.fromARGB(255, 152, 195, 229)),
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    color: Color.fromARGB(255, 152, 195, 229)),
                               ),
                               SizedBox(
                                 width: 30,

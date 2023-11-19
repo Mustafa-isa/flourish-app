@@ -1,6 +1,7 @@
-import 'package:flourish/Pages/HomePage.dart';
+
 import 'package:flourish/Pages/Login.dart';
 import 'package:flourish/Pages/Register.dart';
+import 'package:flourish/Pages/Route.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,17 +15,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       title: 'Flutter Demo',
       theme: ThemeData(
       
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-initialRoute: "/home",
+initialRoute: "/",
       routes: {
         "/":(context) => Register(),
         "/login":(context) => Login(),
-        "/home":(context) => HomePage(),
+        "/route":(context) => RoutePage()
       },
     
     );
