@@ -43,7 +43,7 @@ class _RouteState extends State<RoutePage> {
         bottomNavigationBar: CurvedNavigationBar(
           items: items,
           index: index,
-          color: Color.fromARGB(255, 76, 4, 164),
+          color: Colors.purple.shade900,
           buttonBackgroundColor: Color.fromARGB(66, 51, 2, 142),
           backgroundColor: Colors.white,
           onTap: (selectedIndex) => {
