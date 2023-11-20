@@ -7,15 +7,17 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.grey[800],
+    
+          backgroundColor:   Color(0xFFFFEAEB),
       body: Container(
         height: double.infinity,
         margin: EdgeInsets.symmetric(vertical: 20),
         child: ContactUs(
-          dividerColor: Colors.white,
-          taglineColor:Colors.white ,
-          companyColor:Colors.white,
-          cardColor: Colors.teal.shade400,
+          dividerColor: Color(0xFF835792)
+,
+          taglineColor: Color(0xFF835792) ,
+          companyColor:Color(0xFF835792),
+          cardColor: Color(0xFF835792),
           textColor:  Colors.white,
             logo: AssetImage('assets/images/flourish.png'),
             email: 'adoshi26.ad@gmail.com',

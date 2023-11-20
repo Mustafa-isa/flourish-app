@@ -48,7 +48,8 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
+       backgroundColor:   Color(0xFFFFEAEB),
+      body: SingleChildScrollView(
       child: Column(
         children: [
           Stack(
@@ -64,7 +65,7 @@ class _AboutPageState extends State<AboutPage> {
                   right: 135,
                   child: CircleAvatar(
                     radius: 70,
-                    backgroundColor: Colors.grey[900],
+                    backgroundColor: Color(0xFF835792),
                     child: Image.asset("assets/images/flourish.png"),
                   )),
             ],
@@ -72,14 +73,43 @@ class _AboutPageState extends State<AboutPage> {
           SizedBox(
             height: 60,
           ),
-          Text(
-            'Hello, Flourish Company!',
-            style: GoogleFonts.raleway(
-              textStyle: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Hello,',
+                style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-            ),
+              SizedBox(width: 10,),
+                Text(
+                'Flourish',
+                style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  color: Color(0xFF835792)
+
+                  ),
+                ),
+              ),
+              SizedBox(width: 8,),
+
+                Text(
+                ' Company!',
+                style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           ),
           Container(
             child: CardSlider(
@@ -100,6 +130,7 @@ class _AboutPageState extends State<AboutPage> {
                 textStyle: TextStyle(
                   fontSize: 28.0,
                   fontWeight: FontWeight.bold,
+                  color: Color(0xFF835792)
                 ),
               ),
             ),
@@ -112,10 +143,11 @@ class _AboutPageState extends State<AboutPage> {
                   maxLines: showDetails == false ? 2 : null,
                   overflow: TextOverflow.fade,
                   "We are Flourish, a company dedicated to producing 100% natural products. Our products are made using natural raw materials, as well as dyes extracted from plant waste and organic substances.Our product is eco-friendly, so you dont have to worry about it harming your health. Additionally, we are committed to empowering women by providing them with employment opportunities and a steady source of incomeA more sustainable Alternative for your clothes",
-                  style: GoogleFonts.raleway(
+                  style: GoogleFonts.josefinSans(
                     textStyle: TextStyle(
-                      fontSize: 18.0,
+                      fontSize: 23.0,
                       fontWeight: FontWeight.bold,
+                    
                     ),
                   ),
                 ),
