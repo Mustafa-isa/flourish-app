@@ -1,6 +1,7 @@
 import 'package:flourish/Models/Product_data.dart';
 // import 'package:flourish/Models/Product_model.dart';
-import 'package:flourish/Pages/ProductCart.dart';
+import 'package:flourish/Pages/ProductBox.dart';
+import 'package:flourish/Pages/Product_Details.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,30 +16,40 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 40,
-          ),
-          const Text(
-            'Our Products',
-            style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildCategory(index: 0, name: 'all'),
-              _buildCategory(index: 1, name: 'cotton'),
-              _buildCategory(index: 2, name: 'silk'),
-              // _buildCategory(index: 2, name: 'silk'),
-              // _buildCategory(index: 2, name: 'silk'),
-            ],
-          ),
-          SizedBox(height: 20,),
-          Expanded(child: _buildProducts())
-        ],
+    return Container(
+      color: Color(0xFFFFEAEB),
+      child: Padding(
+        
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            const Text(
+              'Our Products',
+              style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildCategory(index: 0, name: 'all'),
+                  _buildCategory(index: 1, name: 'cotton'),
+                  _buildCategory(index: 2, name: 'silk'),
+                  _buildCategory(index: 3, name: 'linen'),
+                  // _buildCategory(index: 2, name: 'silk'),
+                  // _buildCategory(index: 2, name: 'silk'),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(child: _buildProducts())
+          ],
+        ),
       ),
     );
   }
@@ -48,7 +59,7 @@ class _HomePageState extends State<HomePage> {
           selected = index;
         }),
         child: Container(
-          width: 100,
+          width: 80,
           height: 40,
           margin: EdgeInsets.only(top: 10, right: 10),
           alignment: Alignment.center,
@@ -66,15 +77,35 @@ class _HomePageState extends State<HomePage> {
   _buildProducts() => GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: (100 / 140),
+          childAspectRatio: (40 / 65),
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
         ),
         scrollDirection: Axis.vertical,
-        itemCount: Data.pData.length,
+        itemCount: selected == 0
+            ? Data.pData.length
+            : selected == 1
+                ? Data.filterData('cotton').length
+                : selected == 2
+                    ? Data.filterData('silk').length
+                    : Data.filterData('linen').length,
         itemBuilder: (context, index) {
-          final allp = Data.pData[index];
-          return pCard(product: allp,);
+          final allp = selected == 0
+              ? Data.pData[index]
+              : selected == 1
+                  ? Data.filterData('cotton')[index]
+                  : selected == 2
+                      ? Data.filterData('silk')[index]
+                      : Data.filterData('linen')[index];
+          return GestureDetector(
+            onTap: () => {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Product_Details( product:allp)))
+            },
+            child: pCard(
+              product: allp,
+            ),
+          );
         },
       );
 }
