@@ -6,6 +6,7 @@ class Product {
   final String image;
   final String description;
   final double price;
+  bool fav=false;
   int Quantity;
   Product({
     required this.id,
