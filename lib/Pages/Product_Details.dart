@@ -17,7 +17,6 @@ class Product_Details extends StatelessWidget {
               child: Row(children: [
 
                 
->
               ]),
             ),
           ),
