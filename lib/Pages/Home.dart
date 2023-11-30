@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisCount: 2,
 
           childAspectRatio: (40 / 70),
-          childAspectRatio: (40 / 65),
+        
 
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,

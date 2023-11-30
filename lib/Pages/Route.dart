@@ -44,8 +44,9 @@ class _RouteState extends State<RoutePage> {
           items: items,
           index: index,
           color: Color(0xFF835792),
-          buttonBackgroundColor: Color.fromARGB(66, 51, 2, 142),
-          backgroundColor: Colors.white,
+          buttonBackgroundColor: Color(0xFF835792),
+          backgroundColor:Colors.transparent,
+          
           onTap: (selectedIndex) => {
             setState(
               () {
