@@ -19,7 +19,7 @@ class ContactPage extends StatelessWidget {
           companyColor:Color(0xFF835792),
           cardColor: Color(0xFF835792),
           textColor:  Colors.white,
-            logo: AssetImage('assets/images/flourish.png'),
+            logo: AssetImage('assets/images/flourish.png',),
             email: 'adoshi26.ad@gmail.com',
             companyName: 'Flourish',
             phoneNumber: '+91123456789',

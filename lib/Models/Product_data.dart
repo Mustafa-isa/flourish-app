@@ -87,4 +87,8 @@ class Data {
    static filterData(condationFiltered){
     return pData.where((product) => product.category == condationFiltered).toList();
   }
+  static favData(condationFiltered){
+    return pData.where((product) => product.fav == true && (product.category == condationFiltered || condationFiltered=='') ).toList();
+  }
+
 }
