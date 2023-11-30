@@ -15,7 +15,6 @@ class Product_Details extends StatelessWidget {
               height: 300,
               color:  Color(0xFF835792),
               child: Row(children: [
-                
               ]),
             ),
           ),
