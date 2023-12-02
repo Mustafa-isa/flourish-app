@@ -1,114 +1,119 @@
+import 'package:flourish/Pages/Register.dart';
+import 'package:flourish/components/background.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
 
+class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor:   Color(0xFFFFEAEB),
+    Size size = MediaQuery.of(context).size;
 
-      body: SingleChildScrollView(
+    return Scaffold(
+      body: Background(
         child: Column(
-        
-          children: [
-          
-            SingleChildScrollView(
-              child: Container(
-                margin: EdgeInsets.only(top: 80),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                        Image.asset("assets/images/flourish.png",height: 200,width: 200,),
-              
-                    Container(
-                      decoration: BoxDecoration(
-                        
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFF835792)
-                          ),
-                      padding: EdgeInsets.all(20),
-                      margin: EdgeInsets.all(10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          // Name TextField
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Name',
-                              hintStyle: TextStyle(color: Colors.white),
-                              icon: Icon(Icons.person, color: Colors.white),
-                            ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(height: 16.0),
-                          // Password TextField
-                          TextField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: 'Password',
-                              hintStyle: TextStyle(color: Colors.white),
-                              icon: Icon(Icons.lock, color: Colors.white),
-                            ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(height: 16.0),
-                          // Phone TextField
-              
-                          SizedBox(height: 30.0),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, "/route");
-                              // Handle button press
-                            },
-                            
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 84, 4, 59),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Text(
-                                'Submit',
-                                style: TextStyle(color: Colors.white, fontSize: 20),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 60),
-                      child: TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, "/");
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Register",
-                                style:
-                                    TextStyle(fontSize: 30, color: Color(0xFF835792)),
-                              ),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color:Color(0xFF835792),
-                              ),
-                            ],
-                          )),
-                    )
-                  ],
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.symmetric(horizontal: 40),
+              child: Text(
+                "LOGIN",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF835792),
+                  fontSize: 36
+                ),
+                textAlign: TextAlign.left,
+              ),
+            ),
+
+            SizedBox(height: size.height * 0.03),
+
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(horizontal: 40),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: "Username"
                 ),
               ),
             ),
+
+            SizedBox(height: size.height * 0.03),
+
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(horizontal: 40),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: "Password"
+                ),
+                obscureText: true,
+              ),
+            ),
+
+            Container(
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              child: Text(
+                "Forgot your password?",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Color(0xFF835792)
+                ),
+              ),
+            ),
+
+            SizedBox(height: size.height * 0.05),
+
+            Container(
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              child: MaterialButton(
+                onPressed: () {
+                    Navigator.pushNamed(context, "/route");
+
+                },
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                textColor: Colors.white,
+                padding: const EdgeInsets.all(0),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50.0,
+                  width: size.width * 0.5,
+                  decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.circular(80.0),
+                  color: Color(0xFF835792)
+                  ),
+                  padding: const EdgeInsets.all(0),
+                  child: Text(
+                    "LOGIN",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            Container(
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              child: GestureDetector(
+                onTap: () => {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()))
+                },
+                child: Text(
+                  "Don't Have an Account? Sign up",
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF835792)
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
