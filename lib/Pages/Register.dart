@@ -1,156 +1,111 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:flourish/Models/User_model.dart';
+import 'package:flourish/Pages/Login.dart';
+import 'package:flourish/components/background.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatelessWidget {
-  const Register({super.key});
-
+class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final model = User_model();
-    String? pass1;
-    //String? name;
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
-      backgroundColor: Color(0xFFFFEAEB),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              child: Container(
-                margin: EdgeInsets.only(top: 45),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/images/flourish.png",
-                      height: 200,
-                      width: 200,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFF835792)
-                          ),
-                      padding: EdgeInsets.all(20),
-                      margin: EdgeInsets.all(10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          // Name TextField
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Name...',
-                              hintStyle: TextStyle(color: Colors.white),
-                              icon: Icon(Icons.person, color: Colors.white),
-                            ),
-                            style: TextStyle(color: Colors.white),
-                            onChanged: (name) {
-                              model.addName(name);
-                              // print(model.Info);
-                            },
-                          ),
-                          SizedBox(height: 16.0),
-                          // Password TextField
-                          TextField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: 'Password',
-                              hintStyle: TextStyle(color: Colors.white),
-                              icon: Icon(Icons.lock, color: Colors.white),
-                            ),
-                            style: TextStyle(color: Colors.white),
-                            // onSubmitted: (pass) => pass1 = pass,
-                            onChanged: (value) => pass1 = value,
-                          ),
-                          TextField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: 'Confirm Password',
-                              hintStyle: TextStyle(color: Colors.white),
-                              icon: Icon(Icons.lock, color: Colors.white),
-                            ),
-                            style: TextStyle(color: Colors.white),
-                            onChanged: (pass) => {
-                              if (pass == pass1)
-                                model.addPassword(pass)
-                              else
-                                print('wrong password'),
-                            },
-                          ),
-                          SizedBox(height: 16.0),
-                          // Phone TextField
-                          TextField(
-                            keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
-                              hintText: 'Phone',
-                              hintStyle: TextStyle(color: Colors.white),
-                              icon: Icon(
-                                Icons.phone,
-                                color: Colors.white,
-                              ),
-                            ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(height: 30.0),
-                          ElevatedButton(
-                            onPressed: () {
-                              // model.addName(name!);
-                              // model.addPassword(pass1!);
-                              Navigator.pushNamed(context, "/login");
-                              print(model.Info);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 84, 4, 59),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Text(
-                                'Submit',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, "/login");
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Login",
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    color: Color(0xFF835792)),
-                              ),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Color(0xFF835792),
-                              ),
-                            ],
-                          )),
-                    )
-                  ],
+      body: Background(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.symmetric(horizontal: 40),
+                child: Text(
+                  "REGISTER",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF835792),
+                      fontSize: 36),
+                  textAlign: TextAlign.left,
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: size.height * 0.03),
+              Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.symmetric(horizontal: 40),
+                child: TextField(
+                  decoration: InputDecoration(labelText: "Name"),
+                ),
+              ),
+              SizedBox(height: size.height * 0.03),
+              Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.symmetric(horizontal: 40),
+                child: TextField(
+                  decoration: InputDecoration(labelText: "Mobile Number"),
+                ),
+              ),
+              SizedBox(height: size.height * 0.03),
+              Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.symmetric(horizontal: 40),
+                child: TextField(
+                  decoration: InputDecoration(labelText: "Username"),
+                ),
+              ),
+              SizedBox(height: size.height * 0.03),
+              Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.symmetric(horizontal: 40),
+                child: TextField(
+                  decoration: InputDecoration(labelText: "Password"),
+                  obscureText: true,
+                ),
+              ),
+              SizedBox(height: size.height * 0.05),
+              Container(
+                alignment: Alignment.centerRight,
+                margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                child: MaterialButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/login");
+                  },
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(80.0)),
+                  textColor: Colors.white,
+                  padding: const EdgeInsets.all(0),
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 50.0,
+                    width: size.width * 0.5,
+                    decoration: new BoxDecoration(
+                      borderRadius: BorderRadius.circular(80.0),
+                      color: Color(0xFF835792),
+                    ),
+                    padding: const EdgeInsets.all(0),
+                    child: Text(
+                      "SIGN UP",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                alignment: Alignment.centerRight,
+                margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                child: GestureDetector(
+                  onTap: () => {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()))
+                  },
+                  child: Text(
+                    "Already Have an Account? Sign in",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF835792)),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

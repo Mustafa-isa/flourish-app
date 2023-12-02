@@ -2,6 +2,7 @@
 import 'package:flourish/Pages/Login.dart';
 import 'package:flourish/Pages/Register.dart';
 import 'package:flourish/Pages/Route.dart';
+import 'package:flourish/Pages/Welcom.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,10 +21,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-initialRoute: "/",
+initialRoute: "/welcome",
       routes: {
-        "/":(context) => Register(),
-        "/login":(context) => Login(),
+        "/":(context) => RegisterScreen(),
+        "/login":(context) => LoginScreen(),
+            "/welcome":(context) => Welcome(),
         "/route":(context) => RoutePage()
       },
     
