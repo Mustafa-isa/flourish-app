@@ -44,15 +44,15 @@ class Data {
         Quantity: 2),
   
     Product(
-        id: 8,
+        id: 7,
         name: 'Wool Beige',
-        category: 'wool ',
+        category: 'wool',
         image: 'assets/products/Wool_Beige.jpg',
         description: 'description',
         price: 85,
         Quantity: 2),
     Product(
-        id: 9,
+        id: 8,
         name: 'wool Green',
         category: 'wool',
         image: 'assets/products/Wool_Green.jpg',
@@ -68,7 +68,7 @@ class Data {
         price: 85,
         Quantity: 2),
     Product(
-        id: 9,
+        id: 10,
         name: 'Linen Beige',
         category: 'linen',
         image: 'assets/products/Linen_Beige.jpg',
@@ -76,7 +76,7 @@ class Data {
         price: 85,
         Quantity: 2),
     Product(
-        id: 9,
+        id: 11,
         name: ' Linen Yellow',
         category: 'linen',
         image: 'assets/products/Linen_Yellow.jpg',
@@ -90,5 +90,7 @@ class Data {
   static favData(condationFiltered){
     return pData.where((product) => product.fav == true && (product.category == condationFiltered || condationFiltered=='') ).toList();
   }
-
+  static CartData(condationFiltered){
+    return pData.where((product) => product.m >0&& (product.category == condationFiltered || condationFiltered=='') ).toList();
+  }
 }

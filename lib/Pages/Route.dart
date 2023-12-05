@@ -1,9 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flourish/Pages/About.dart';
 import 'package:flourish/Pages/Contact.dart';
 import 'package:flourish/Pages/Favourite.dart';
 import 'package:flourish/Pages/Home.dart';
 import 'package:flourish/Pages/UserInfo.dart';
+import 'package:flourish/Pages/user_cart.dart';
 import 'package:flutter/material.dart';
 
 class RoutePage extends StatefulWidget {
@@ -27,7 +27,7 @@ class _RouteState extends State<RoutePage> {
   ];
   final List<Widget> _pages = [
     FavPage(),
-    AboutPage(),
+    Ucart(),
     HomePage(),
     UserInfo(),
     ContactPage()

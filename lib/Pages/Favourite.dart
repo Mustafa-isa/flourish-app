@@ -38,6 +38,7 @@ class _FavPageState extends State<FavPage> {
                   _buildCategory(index: 1, name: 'cotton'),
                   _buildCategory(index: 2, name: 'silk'),
                   _buildCategory(index: 3, name: 'linen'),
+                  _buildCategory(index: 4, name: 'wool'),
                   // _buildCategory(index: 2, name: 'silk'),
                   // _buildCategory(index: 2, name: 'silk'),
                 ],
@@ -87,7 +88,8 @@ class _FavPageState extends State<FavPage> {
                 ? Data.favData('cotton').length
                 : selected == 2
                     ? Data.favData('silk').length
-                    : Data.favData('linen').length,
+                    : selected==3 ? Data.favData('linen').length
+                    : Data.favData('wool').length ,
         itemBuilder: (context, index) {
           final allp = selected == 0
               ? Data.favData('')[index]
@@ -95,7 +97,9 @@ class _FavPageState extends State<FavPage> {
                   ? Data.favData('cotton')[index]
                   : selected == 2
                       ? Data.favData('silk')[index]
-                      : Data.favData('linen')[index];
+                      :selected==3?
+                      Data.favData('linen')[index]
+                      : Data.favData('wool')[index];
           return GestureDetector(
             onTap: () => {
               Navigator.push(context,
