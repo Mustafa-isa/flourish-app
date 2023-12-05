@@ -6,8 +6,9 @@ class Product {
   final String image;
   final String description;
   final double price;
-  bool fav=false;
+  bool fav = false;
   int Quantity;
+  int m=0;
   Product({
     required this.id,
     required this.name,

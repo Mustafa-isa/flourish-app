@@ -1,18 +1,17 @@
 import 'package:flourish/Models/Product_data.dart';
-// import 'package:flourish/Models/Product_model.dart';
 import 'package:flourish/Pages/ProductBox.dart';
 import 'package:flourish/Pages/Product_Details.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Ucart extends StatefulWidget {
+  const Ucart({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Ucart> createState() => _UcartState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int selected = 0;
+class _UcartState extends State<Ucart> {
+ int selected = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -78,40 +77,37 @@ class _HomePageState extends State<HomePage> {
   _buildProducts() => GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-
           childAspectRatio: (40 / 70),
-        
-
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
         ),
         scrollDirection: Axis.vertical,
         itemCount: selected == 0
-            ? Data.pData.length
+            ? Data.CartData('').length
             : selected == 1
-                ? Data.filterData('cotton').length
+                ? Data.CartData('cotton').length
                 : selected == 2
-                    ? Data.filterData('silk').length
-                    : selected==3? Data.filterData('linen').length
-                    :Data.filterData('wool').length,
+                    ? Data.CartData('silk').length
+                    : selected==3 ? Data.favData('linen').length
+                    : Data.CartData('wool').length ,
         itemBuilder: (context, index) {
           final allp = selected == 0
-              ? Data.pData[index]
+              ? Data.CartData('')[index]
               : selected == 1
-                  ? Data.filterData('cotton')[index]
+                  ? Data.CartData('cotton')[index]
                   : selected == 2
-                      ? Data.filterData('silk')[index]
+                      ? Data.CartData('silk')[index]
                       :selected==3?
-                      Data.filterData('linen')[index]
-                      : Data.filterData('wool')[index];
+                      Data.CartData('linen')[index]
+                      : Data.CartData('wool')[index];
           return GestureDetector(
             onTap: () => {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => Product_Details( product:allp)))
             },
-            child: pCard(
+            child:   pCard(
               product: allp,
-            ),
+            ) ,
           );
         },
       );

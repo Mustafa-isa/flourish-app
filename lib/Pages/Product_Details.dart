@@ -1,4 +1,6 @@
+import 'package:flourish/Models/User_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Product_Details extends StatefulWidget {
   var product;
@@ -9,6 +11,10 @@ class Product_Details extends StatefulWidget {
 }
 
 class _Product_DetailsState extends State<Product_Details> {
+
+  int? id;
+  int? m;
+  User_model model = User_model();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,10 +75,21 @@ class _Product_DetailsState extends State<Product_Details> {
                                 SizedBox(height: 10),
                                 TextField(
                                   keyboardType: TextInputType.number,
+
+                                  // inputFormatters: <TextInputFormatter>[
+                                  //   FilteringTextInputFormatter.allow(
+                                  //       RegExp(r'[0-9]')),
+                                  //   FilteringTextInputFormatter.digitsOnly
+                                  // ],
+
                                   decoration: InputDecoration(
                                     labelText: 'Enter Number',
                                     hintText: 'Start from 1',
                                   ),
+                                  onChanged: (value) {
+                                    m = int.tryParse(value);
+                                    // id = widget.product.id;
+                               
                                   onChanged: (value) {},
                                 ),
                               ],
@@ -86,9 +103,14 @@ class _Product_DetailsState extends State<Product_Details> {
                               ),
                               ElevatedButton(
                                 onPressed: () {
+
+                                  print(m);
+                                  widget.product.m = m ;
+                                  Navigator.of(context).pop();
                                   // Add your logic here to use the selected number
 
                                   // Close the dialog
+
                                 },
                                 child: Text('OK'),
                               ),
