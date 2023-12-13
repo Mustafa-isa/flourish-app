@@ -11,7 +11,6 @@ class Product_Details extends StatefulWidget {
 }
 
 class _Product_DetailsState extends State<Product_Details> {
-
   int? id;
   int? m;
   User_model model = User_model();
@@ -74,24 +73,24 @@ class _Product_DetailsState extends State<Product_Details> {
                                 Text('Dialog Title'),
                                 SizedBox(height: 10),
                                 TextField(
-                                  keyboardType: TextInputType.number,
+                                    keyboardType: TextInputType.number,
 
-                                  // inputFormatters: <TextInputFormatter>[
-                                  //   FilteringTextInputFormatter.allow(
-                                  //       RegExp(r'[0-9]')),
-                                  //   FilteringTextInputFormatter.digitsOnly
-                                  // ],
+                                    // inputFormatters: <TextInputFormatter>[
+                                    //   FilteringTextInputFormatter.allow(
+                                    //       RegExp(r'[0-9]')),
+                                    //   FilteringTextInputFormatter.digitsOnly
+                                    // ],
 
-                                  decoration: InputDecoration(
-                                    labelText: 'Enter Number',
-                                    hintText: 'Start from 1',
-                                  ),
-                                  onChanged: (value) {
-                                    m = int.tryParse(value);
-                                    // id = widget.product.id;
-                               
-                                  onChanged: (value) {},
-                                ),
+                                    decoration: InputDecoration(
+                                      labelText: 'Enter Number',
+                                      hintText: 'Start from 1',
+                                    ),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        m = int.tryParse(value);
+                                      });
+                                      // id = widget.product.id;
+                                    }),
                               ],
                             ),
                             actions: [
@@ -103,14 +102,14 @@ class _Product_DetailsState extends State<Product_Details> {
                               ),
                               ElevatedButton(
                                 onPressed: () {
-
                                   print(m);
-                                  widget.product.m = m ;
+                                setState(() {
+                                    widget.product.m = m;
+                                });
                                   Navigator.of(context).pop();
                                   // Add your logic here to use the selected number
 
                                   // Close the dialog
-
                                 },
                                 child: Text('OK'),
                               ),
@@ -221,6 +220,35 @@ class _Product_DetailsState extends State<Product_Details> {
                         width: 15,
                       )
                     ],
+                  ),
+                  Container(
+                    child: widget.product.m == 0
+                        ? null
+                        : Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.grey[200],
+                            ),
+                            padding: EdgeInsets.all(20),
+                            margin: EdgeInsets.all(10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                              Text(
+                                "Added To Cart",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.indigo[900]),
+                              ),
+                              Text(
+                                  ' ${widget.product.m} M =   \$ ${widget.product.price * widget.product.m}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.indigo[900],
+                                      fontSize: 15))
+                            ]),
+                          ),
                   )
                 ]),
           )

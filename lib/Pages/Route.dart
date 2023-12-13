@@ -14,13 +14,14 @@ class RoutePage extends StatefulWidget {
 }
 
 class _RouteState extends State<RoutePage> {
+  
   final items = const [
     Icon(
       Icons.favorite,
       size: 30,
       color: Colors.white,
     ),
-    Icon(Icons.info_sharp, size: 30, color: Colors.white),
+    Icon(Icons.shopping_basket, size: 30, color: Colors.white),
     Icon(Icons.home, size: 30, color: Colors.white),
     Icon(Icons.verified_user_rounded, size: 30, color: Colors.white),
     Icon(Icons.contact_page, size: 30, color: Colors.white),
