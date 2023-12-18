@@ -1,7 +1,10 @@
 import 'package:card_slider/card_slider.dart';
+import 'package:flourish/Pages/Contact.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:card_slider/card_slider.dart';
+import 'package:typicons_flutter/typicons_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatefulWidget {
   AboutPage({super.key});
@@ -52,24 +55,7 @@ class _AboutPageState extends State<AboutPage> {
       body: SingleChildScrollView(
       child: Column(
         children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Container(
-                color: Colors.grey,
-                child: Image.asset('assets/images/image1.jpeg',
-                    width: double.infinity, height: 270, fit: BoxFit.cover),
-              ),
-              Positioned(
-                  top: 190,
-                  right: 135,
-                  child: CircleAvatar(
-                    radius: 70,
-                    backgroundColor: Color(0xFF835792),
-                    child: Image.asset("assets/images/flourish.png"),
-                  )),
-            ],
-          ),
+        Image.asset("assets/images/logo.png" ,width:200 ,height: 100,),
           SizedBox(
             height: 60,
           ),
@@ -164,9 +150,125 @@ class _AboutPageState extends State<AboutPage> {
                     style: TextStyle(fontSize: 20),
                   ))
             ],
-          )
+          ) ,
+// ContactPage() 
+   Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            
+            Visibility(
+              visible: "https://www.reuters.com/?edition-redirect=ara" != null,
+              child: IconButton(
+                color: Colors.teal,
+                onPressed: () {
+                  launchUrl(Uri.parse("https://www.reuters.com/?edition-redirect=ara"!));
+                },
+                icon: Icon(Typicons.link),
+              
+              ),
+            ),
+            Visibility(
+                visible: 01115684146 != null,
+                child: IconButton(
+                color: Colors.greenAccent.shade700,
+
+                  onPressed: () {
+                    showAlert(context);
+                  },
+                  icon: Icon(Typicons.phone),
+                )
+
+                
+                ),
+            Visibility(
+                child: IconButton(
+                color: Color.fromARGB(255, 156, 28, 182),
+
+                    onPressed: () {
+                      launchUrl(Uri.parse('mailto:' + "mostafsj@gmai.com"));
+                    },
+                    icon: Icon(Typicons.mail))
+
+              
+                ),
+          
+            Visibility(
+              visible: "sdfvsdf" != null,
+              child:    IconButton(
+                color: Colors.blueAccent,
+
+              onPressed: () {
+              launchUrl(
+                      Uri.parse('https://www.facebook.com/' + "sdfvsdf"));
+                
+              },
+              icon: Icon(Typicons.social_facebook)),
+              
+              
+            
+            ),
+          
+          ],
+        ),
         ],
       ),
     ));
   }
 }
+  showAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          elevation: 8.0,
+          contentPadding: EdgeInsets.all(18.0),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+          content: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                InkWell(
+                  onTap: () => launchUrl(Uri.parse('tel:' + "01222575"!)),
+                  child: Container(
+                    height: 50.0,
+                    alignment: Alignment.center,
+                    child: Text('Call'),
+                  ),
+                ),
+                Divider(),
+                InkWell(
+                  onTap: () => launchUrl(Uri.parse('sms:' + "01222575"!)),
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 50.0,
+                    child: Text('Message'),
+                  ),
+                ),
+                Divider(),
+                InkWell(
+                  onTap: () {
+                    final url = Uri.parse(
+                      'https://wa.me/' +
+                        "01222575"!.substring(
+                            1,
+                            "01222575"!.length,
+                          ),
+                    );
+                    print(url);
+                    launchUrl(url, mode: LaunchMode.externalApplication);
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 50.0,
+                    child: Text('WhatsApp'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }

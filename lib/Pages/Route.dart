@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flourish/Pages/About.dart';
 import 'package:flourish/Pages/Contact.dart';
 import 'package:flourish/Pages/Favourite.dart';
 import 'package:flourish/Pages/Home.dart';
@@ -31,7 +32,7 @@ class _RouteState extends State<RoutePage> {
     Ucart(),
     HomePage(),
     UserInfo(),
-    ContactPage()
+    AboutPage()
   ];
   int index = 2;
   // This widget is the root of your application.
