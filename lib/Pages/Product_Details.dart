@@ -11,7 +11,6 @@ class Product_Details extends StatefulWidget {
 }
 
 class _Product_DetailsState extends State<Product_Details> {
-
   int? id;
   int? m;
   User_model model = User_model();
@@ -74,24 +73,22 @@ class _Product_DetailsState extends State<Product_Details> {
                                 Text('Dialog Title'),
                                 SizedBox(height: 10),
                                 TextField(
-                                  keyboardType: TextInputType.number,
+                                    keyboardType: TextInputType.number,
 
-                                  // inputFormatters: <TextInputFormatter>[
-                                  //   FilteringTextInputFormatter.allow(
-                                  //       RegExp(r'[0-9]')),
-                                  //   FilteringTextInputFormatter.digitsOnly
-                                  // ],
+                                    // inputFormatters: <TextInputFormatter>[
+                                    //   FilteringTextInputFormatter.allow(
+                                    //       RegExp(r'[0-9]')),
+                                    //   FilteringTextInputFormatter.digitsOnly
+                                    // ],
 
-                                  decoration: InputDecoration(
-                                    labelText: 'Enter Number',
-                                    hintText: 'Start from 1',
-                                  ),
-                                  onChanged: (value) {
-                                    m = int.tryParse(value);
-                                    // id = widget.product.id;
-                               
-                                  onChanged: (value) {},
-                                ),
+                                    decoration: InputDecoration(
+                                      labelText: 'Enter Number',
+                                      hintText: 'Start from 1',
+                                    ),
+                                    onChanged: (value) {
+                                      m = int.tryParse(value);
+                                      // id = widget.product.id;
+                                    }),
                               ],
                             ),
                             actions: [
@@ -103,14 +100,12 @@ class _Product_DetailsState extends State<Product_Details> {
                               ),
                               ElevatedButton(
                                 onPressed: () {
-
                                   print(m);
-                                  widget.product.m = m ;
+                                  widget.product.m = m;
                                   Navigator.of(context).pop();
                                   // Add your logic here to use the selected number
 
                                   // Close the dialog
-
                                 },
                                 child: Text('OK'),
                               ),
