@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flourish/Pages/About.dart';
-import 'package:flourish/Pages/Contact.dart';
 import 'package:flourish/Pages/Favourite.dart';
 import 'package:flourish/Pages/Home.dart';
 import 'package:flourish/Pages/UserInfo.dart';

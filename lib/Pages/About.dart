@@ -1,5 +1,4 @@
 import 'package:card_slider/card_slider.dart';
-import 'package:flourish/Pages/Contact.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:card_slider/card_slider.dart';
