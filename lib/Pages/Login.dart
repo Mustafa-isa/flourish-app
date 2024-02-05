@@ -1,5 +1,7 @@
-import 'package:flourish/Pages/Register.dart';
-import 'package:flourish/components/background.dart';
+// import 'package:flourish/Pages/Register.dart';
+// import 'package:flourish/components/background.dart';
+import 'package:Flourish/Pages/Register.dart';
+import 'package:Flourish/components/background.dart';
 import 'package:flutter/material.dart';
 
 

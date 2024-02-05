@@ -1,4 +1,4 @@
-import 'package:flourish/Models/Product_data.dart';
+import 'package:Flourish/Models/Product_data.dart';
 import 'package:flutter/material.dart';
 
 class AppData extends ChangeNotifier {

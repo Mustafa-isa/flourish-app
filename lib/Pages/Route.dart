@@ -1,9 +1,14 @@
+import 'package:Flourish/Pages/About.dart';
+import 'package:Flourish/Pages/Favourite.dart';
+import 'package:Flourish/Pages/Home.dart';
+import 'package:Flourish/Pages/UserInfo.dart';
+import 'package:Flourish/Pages/user_cart.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flourish/Pages/About.dart';
-import 'package:flourish/Pages/Favourite.dart';
-import 'package:flourish/Pages/Home.dart';
-import 'package:flourish/Pages/UserInfo.dart';
-import 'package:flourish/Pages/user_cart.dart';
+// import 'package:flourish/Pages/About.dart';
+// import 'package:flourish/Pages/Favourite.dart';
+// import 'package:flourish/Pages/Home.dart';
+// import 'package:flourish/Pages/UserInfo.dart';
+// import 'package:flourish/Pages/user_cart.dart';
 import 'package:flutter/material.dart';
 
 class RoutePage extends StatefulWidget {
@@ -14,6 +19,7 @@ class RoutePage extends StatefulWidget {
 }
 
 class _RouteState extends State<RoutePage> {
+  
   
   final items = const [
     Icon(

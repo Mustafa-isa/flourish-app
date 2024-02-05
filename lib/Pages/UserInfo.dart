@@ -1,6 +1,7 @@
-import 'package:flourish/Models/ProviderClass.dart';
+import 'package:Flourish/Models/ProviderClass.dart';
+// import 'package:flourish/Models/ProviderClass.dart';
 import 'package:flutter/material.dart';
-import 'package:flourish/Models/Product_data.dart';
+// import 'package:flourish/Models/Product_data.dart';
 import 'package:provider/provider.dart';
 
 class UserInfo extends StatelessWidget {
@@ -93,3 +94,4 @@ class UserInfo extends StatelessWidget {
     );
   }
 }
+

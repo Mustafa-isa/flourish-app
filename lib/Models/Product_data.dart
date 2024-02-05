@@ -1,4 +1,4 @@
-import 'package:flourish/Models/Product_model.dart';
+import 'package:Flourish/Models/Product_model.dart';
 
 class Data {
   static List finalPriceArray = [];

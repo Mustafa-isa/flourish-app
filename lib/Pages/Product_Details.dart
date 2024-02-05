@@ -1,4 +1,4 @@
-import 'package:flourish/Models/User_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,7 +13,6 @@ class Product_Details extends StatefulWidget {
 class _Product_DetailsState extends State<Product_Details> {
   int? id;
   int? m;
-  User_model model = User_model();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,9 +85,7 @@ class _Product_DetailsState extends State<Product_Details> {
                                       hintText: 'Start from 1',
                                     ),
                                     onChanged: (value) {
-                                      setState(() {
-                                        m = int.tryParse(value);
-                                      });
+                                      m = int.tryParse(value);
                                       // id = widget.product.id;
                                     }),
                               ],
@@ -103,6 +100,7 @@ class _Product_DetailsState extends State<Product_Details> {
                               ElevatedButton(
                                 onPressed: () {
                                   print(m);
+                                  widget.product.m = m;
                                 setState(() {
                                     widget.product.m = m;
                                 });

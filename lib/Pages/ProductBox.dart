@@ -1,5 +1,6 @@
-import 'package:flourish/Models/User_model.dart';
+// import 'package:flourish/Models/User_model.dart';
 
+import 'package:Flourish/Models/User_model.dart';
 import 'package:flutter/material.dart';
 
 import '../Models/Product_model.dart';

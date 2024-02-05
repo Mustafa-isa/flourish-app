@@ -1,4 +1,4 @@
-import 'package:flourish/Models/Product_model.dart';
+// import 'package:flourish/Models/Product_model.dart';
 
 class User_model {
   Map<String, String> Info = {'name': '', 'Password': '', 'E-mail': ''};
