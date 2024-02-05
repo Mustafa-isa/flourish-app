@@ -1,7 +1,10 @@
-import 'package:flourish/Models/Product_data.dart';
-// import 'package:flourish/Models/Product_model.dart';
-import 'package:flourish/Pages/ProductBox.dart';
-import 'package:flourish/Pages/Product_Details.dart';
+// import 'package:flourish/Models/Product_data.dart';
+// // import 'package:flourish/Models/Product_model.dart';
+// import 'package:flourish/Pages/ProductBox.dart';
+// import 'package:flourish/Pages/Product_Details.dart';
+import 'package:Flourish/Models/Product_data.dart';
+import 'package:Flourish/Pages/ProductBox.dart';
+import 'package:Flourish/Pages/Product_Details.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

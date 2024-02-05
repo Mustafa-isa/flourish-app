@@ -1,9 +1,14 @@
+import 'package:Flourish/Pages/About.dart';
+import 'package:Flourish/Pages/Favourite.dart';
+import 'package:Flourish/Pages/Home.dart';
+import 'package:Flourish/Pages/UserInfo.dart';
+import 'package:Flourish/Pages/user_cart.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flourish/Pages/Contact.dart';
-import 'package:flourish/Pages/Favourite.dart';
-import 'package:flourish/Pages/Home.dart';
-import 'package:flourish/Pages/UserInfo.dart';
-import 'package:flourish/Pages/user_cart.dart';
+// import 'package:flourish/Pages/About.dart';
+// import 'package:flourish/Pages/Favourite.dart';
+// import 'package:flourish/Pages/Home.dart';
+// import 'package:flourish/Pages/UserInfo.dart';
+// import 'package:flourish/Pages/user_cart.dart';
 import 'package:flutter/material.dart';
 
 class RoutePage extends StatefulWidget {
@@ -14,13 +19,14 @@ class RoutePage extends StatefulWidget {
 }
 
 class _RouteState extends State<RoutePage> {
+  
   final items = const [
     Icon(
       Icons.favorite,
       size: 30,
       color: Colors.white,
     ),
-    Icon(Icons.info_sharp, size: 30, color: Colors.white),
+    Icon(Icons.shopping_basket, size: 30, color: Colors.white),
     Icon(Icons.home, size: 30, color: Colors.white),
     Icon(Icons.verified_user_rounded, size: 30, color: Colors.white),
     Icon(Icons.contact_page, size: 30, color: Colors.white),
@@ -30,7 +36,7 @@ class _RouteState extends State<RoutePage> {
     Ucart(),
     HomePage(),
     UserInfo(),
-    ContactPage()
+    AboutPage()
   ];
   int index = 2;
   // This widget is the root of your application.

@@ -1,6 +1,9 @@
-import 'package:flourish/Models/Product_data.dart';
-import 'package:flourish/Pages/ProductBox.dart';
-import 'package:flourish/Pages/Product_Details.dart';
+// import 'package:flourish/Models/Product_data.dart';
+// import 'package:flourish/Pages/ProductBox.dart';
+// import 'package:flourish/Pages/Product_Details.dart';
+import 'package:Flourish/Models/Product_data.dart';
+import 'package:Flourish/Pages/ProductBox.dart';
+import 'package:Flourish/Pages/Product_Details.dart';
 import 'package:flutter/material.dart';
 
 class FavPage extends StatefulWidget {
@@ -11,14 +14,13 @@ class FavPage extends StatefulWidget {
 }
 
 class _FavPageState extends State<FavPage> {
- int selected = 0;
+  int selected = 0;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xFFFFEAEB),
       child: Padding(
-        
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
@@ -26,7 +28,7 @@ class _FavPageState extends State<FavPage> {
               height: 40,
             ),
             const Text(
-              'Our Products',
+              'Your Favorite Products',
               style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
             ),
             SingleChildScrollView(
@@ -88,8 +90,9 @@ class _FavPageState extends State<FavPage> {
                 ? Data.favData('cotton').length
                 : selected == 2
                     ? Data.favData('silk').length
-                    : selected==3 ? Data.favData('linen').length
-                    : Data.favData('wool').length ,
+                    : selected == 3
+                        ? Data.favData('linen').length
+                        : Data.favData('wool').length,
         itemBuilder: (context, index) {
           final allp = selected == 0
               ? Data.favData('')[index]
@@ -97,17 +100,21 @@ class _FavPageState extends State<FavPage> {
                   ? Data.favData('cotton')[index]
                   : selected == 2
                       ? Data.favData('silk')[index]
-                      :selected==3?
-                      Data.favData('linen')[index]
-                      : Data.favData('wool')[index];
+                      : selected == 3
+                          ? Data.favData('linen')[index]
+                          : Data.favData('wool')[index];
           return GestureDetector(
             onTap: () => {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Product_Details( product:allp)))
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Product_Details(product: allp)))
             },
-            child: allp.fav?  pCard(
-              product: allp,
-            ) : null,
+            child: allp.fav
+                ? pCard(
+                    product: allp,
+                  )
+                : null,
           );
         },
       );

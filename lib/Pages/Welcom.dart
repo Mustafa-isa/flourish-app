@@ -1,9 +1,15 @@
-import 'package:flourish/Pages/Login.dart';
-import 'package:flourish/Pages/Register.dart';
-import 'package:flourish/components/background.dart';
+import 'package:Flourish/Pages/Login.dart';
+import 'package:Flourish/Pages/Register.dart';
+import 'package:Flourish/components/background.dart';
 import 'package:flutter/material.dart';
 
+// import 'package:flourish/Pages/Login.dart';
+// import 'package:flourish/Pages/Register.dart';
+// import 'package:flourish/components/background.dart';
+
 class Welcome extends StatelessWidget {
+  const Welcome({super.key});
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

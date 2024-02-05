@@ -1,6 +1,7 @@
-import 'package:flourish/Models/Product_model.dart';
+import 'package:Flourish/Models/Product_model.dart';
 
 class Data {
+  static List finalPriceArray = [];
   static List<Product> pData = [
     Product(
         id: 1,
@@ -42,7 +43,6 @@ class Data {
         description: 'description',
         price: 85,
         Quantity: 2),
-  
     Product(
         id: 7,
         name: 'Wool Beige',
@@ -84,13 +84,34 @@ class Data {
         price: 85,
         Quantity: 2),
   ];
-   static filterData(condationFiltered){
-    return pData.where((product) => product.category == condationFiltered).toList();
+  static filterData(condationFiltered) {
+    return pData
+        .where((product) => product.category == condationFiltered)
+        .toList();
   }
-  static favData(condationFiltered){
-    return pData.where((product) => product.fav == true && (product.category == condationFiltered || condationFiltered=='') ).toList();
+
+  static favData(condationFiltered) {
+    return pData
+        .where((product) =>
+            product.fav == true &&
+            (product.category == condationFiltered || condationFiltered == ''))
+        .toList();
   }
+
   static CartData(condationFiltered){
-    return pData.where((product) => product.m >0&& (product.category == condationFiltered || condationFiltered=='') ).toList();
+    finalPriceArray = pData
+        .where((product) =>
+            product.m > 0 &&
+            (product.category == condationFiltered || condationFiltered == ''))
+        .toList();
+    return finalPriceArray;
+  }
+
+  static getPrice() {
+    double totalPrice = 0;
+  for (Product product in finalPriceArray) {
+    totalPrice += product.price * product.m ;
+  }
+    return totalPrice;
   }
 }
