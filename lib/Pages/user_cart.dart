@@ -1,9 +1,5 @@
 import 'package:Flourish/Models/Product_data.dart';
 import 'package:Flourish/Models/ProviderClass.dart';
-// import 'package:flourish/Models/Product_data.dart';
-// import 'package:flourish/Models/ProviderClass.dart';
-// import 'package:flourish/Pages/ProductBox.dart';
-// import 'package:flourish/Pages/Product_Details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

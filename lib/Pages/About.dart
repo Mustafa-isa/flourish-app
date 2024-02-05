@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:card_slider/card_slider.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:typicons_flutter/typicons_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatefulWidget {
   AboutPage({super.key});

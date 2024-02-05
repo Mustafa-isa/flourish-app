@@ -5,6 +5,7 @@ import 'package:Flourish/Pages/Route.dart';
 import 'package:Flourish/Pages/Welcom.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 
 // import 'package:flourish/Models/ProviderClass.dart';
 // import 'package:flourish/Pages/Login.dart';
@@ -13,6 +14,12 @@ import 'package:provider/provider.dart';
 // import 'package:flourish/Pages/Welcom.dart';
 
 void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AppData(),
+      child: MyApp(),
+    ),
+  );
   runApp(
     ChangeNotifierProvider(
       create: (context) => AppData(),
@@ -33,11 +40,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: "/welcome",
+
       routes: {
         "/": (context) => RegisterScreen(),
         "/login": (context) => LoginScreen(),
         "/welcome": (context) => Welcome(),
         "/route": (context) => RoutePage()
+       
       },
     );
   }

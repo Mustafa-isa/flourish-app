@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class UserInfo extends StatelessWidget {
-  const UserInfo({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -96,3 +94,4 @@ class UserInfo extends StatelessWidget {
     );
   }
 }
+

@@ -101,6 +101,9 @@ class _Product_DetailsState extends State<Product_Details> {
                                 onPressed: () {
                                   print(m);
                                   widget.product.m = m;
+                                setState(() {
+                                    widget.product.m = m;
+                                });
                                   Navigator.of(context).pop();
                                   // Add your logic here to use the selected number
 
@@ -215,6 +218,35 @@ class _Product_DetailsState extends State<Product_Details> {
                         width: 15,
                       )
                     ],
+                  ),
+                  Container(
+                    child: widget.product.m == 0
+                        ? null
+                        : Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.grey[200],
+                            ),
+                            padding: EdgeInsets.all(20),
+                            margin: EdgeInsets.all(10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                              Text(
+                                "Added To Cart",
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.indigo[900]),
+                              ),
+                              Text(
+                                  ' ${widget.product.m} M =   \$ ${widget.product.price * widget.product.m}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.indigo[900],
+                                      fontSize: 15))
+                            ]),
+                          ),
                   )
                 ]),
           )
