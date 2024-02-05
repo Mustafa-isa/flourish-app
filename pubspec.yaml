@@ -59,7 +59,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/main.png"
+  image_path: "assets/images/logo2.png"
   flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
